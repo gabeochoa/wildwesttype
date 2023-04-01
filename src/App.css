@@ -1,38 +1,253 @@
 .App {
-  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.game-left {
+  flex-basis: 15%;
+  height: 100%;
+  background-color: #fff;
+  padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-right {
+  flex-basis: 85%;
+  height: 100%;
+  background-color: #fff;
+  padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+  }
+
+  .game-left,
+  .game-right {
+    flex-basis: 100%;
+    margin-bottom: 16px;
   }
 }
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #2f2f2f;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header__logo {
+  height: 40px;
+  margin-right: 16px;
+}
+
+.header__title {
+  font-size: 24px;
+  margin: 0;
+}
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.progress-bar__label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.progress-bar__bar {
+  height: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  position: relative;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.progress-bar__value {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.player {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.player__avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.player__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.player__name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.player__stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.player__stat {
+  display: flex;
+  align-items: center;
+}
+
+.player__stat-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.player__stat-value {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.typing-input {
+  width: 80%;
+  height: 5%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.typing-input input {
+  font-size: 20px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.typing-input input:focus {
+  border-color: #007bff;
+}
+
+.questlog {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.questlog__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.questlog__entry {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questlog__entry-text {
+  flex-grow: 1;
+}
+
+.questlog__entry-reward {
+  font-weight: bold;
+}
+
+
+.mine {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mine__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mine__header-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.mine__header-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.mine__content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.mine__text {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mine__subtext {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #6a6a6a;
+}
+
+
+.mine__info {
+  font-size: 16px;
+  color: #999999;
+  margin: 0;
+  text-align: center;
 }
